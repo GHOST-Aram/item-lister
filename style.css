@@ -5,7 +5,7 @@
     padding: 0;
 }
 :root{
-    --secondary-color:green;
+    --success-color:green;
     --light-color:white;
     --dark-color:rgb(2, 2, 17);
 }
@@ -69,7 +69,7 @@ ul{
     border-top: solid 1px grey;
 }
 .bg-success{
-    background-color: var(--secondary-color);
+    background-color: var(--success-color);
 }
 .text-light{
     color: var(--light-color);
