@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500&display=swap');
+*{
+    font-family: 'Work Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --secondary-color:green;
+    --light-color:white;
+    --dark-color:rgb(2, 2, 17);
+}
+body{
+    background-color: rgb(139, 135, 135);
+    padding-top: 8rem;
+}
+.container{
+    width: 80%;
+    margin: auto;
+}
+input[type=text]{
+    width: 30%;
+    
+}
+.header{
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+    padding: 2rem;
+}
+.main .container div{
+    width: 95%;
+    margin: 1rem auto;
+}
+.btn{
+    margin: 5px;
+    
+}
+input[type=text]{
+    background-color: transparent;
+
+}
+.input[type=text]:focus{
+    outline: none;
+}
+.input-area{
+    align-items: center;
+    justify-content: flex-start;
+}
+ul{
+    list-style: none;
+}
+
+/* Utilities */
+.flex{
+    display: flex;
+
+}
+.border-outline{
+    border: solid 1px grey;
+}
+.border-rounded{
+    border-radius: .25rem;
+}
+.border-none{
+    border: none;
+}
+.border-top{
+    border-top: solid 1px grey;
+}
+.bg-success{
+    background-color: var(--secondary-color);
+}
+.text-light{
+    color: var(--light-color);
+}
+.bg-dark{
+    background-color: var(--dark-color);
+}
+.font-md{
+    font-size: 20px;
+}
+.font-lg{
+    font-size: 28px;
+}
+.font-sm{
+    font-size: 13px;
+}
+.fw-300{
+    font-weight: 300;
+}
+.fw-500{
+    font-weight: 500;
+}
+
+.p-1{
+    padding: .5rem;
+}
+.p-block-1{
+    padding-block: .5rem;
+}
