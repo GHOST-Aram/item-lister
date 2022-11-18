@@ -23,31 +23,36 @@ function createItem(){
         "bg-danger", "btn-sm", "text-light","border-none"
     )
     removeButton.textContent = "Remove"
-        
+    removeButton.onclick = "removeButton()"    
     if(listItem.textContent.trim()){
         //Appending items to list
         ulDiv.appendChild(listItem)
         ulDiv.appendChild(removeButton)
         newItemBuffer.value = ""
+        return ulDiv
     } else {
         alert("You did not type anything")
     }
-    return ulDiv
+    //Creating a list object
+    
 }
 
 function addToItemsArray(item){
-    itemsArray.push(item)
-}
+    if(item) itemsArray.push(item)
+    
+    console.log(item)
+}S
 
 function renderList(){
     itemsArray.forEach(element => {
         itemList.appendChild(element)
     });
-    
 }
-function removeItem(e){
-    itemList.removeChild(e.target.parentElement)
-}
+// function removeItem(e){
+//     if(e.target.type === "submit")
+//         itemList.removeChild(e.target.parentElement)
+//     // console.log(e.target.type)
+// }
 
 //Call EventListener on submit
 form.addEventListener('submit', (e) =>{
@@ -56,4 +61,7 @@ form.addEventListener('submit', (e) =>{
     addToItemsArray(item)
     renderList()
 })
+
+//
+// itemList.addEveSSntListener('click', removeItem)
 
