@@ -8,6 +8,7 @@
     --success-color:green;
     --light-color:white;
     --dark-color:rgb(2, 2, 17);
+    --danger-color:red;
 }
 body{
     background-color: rgb(139, 135, 135);
@@ -17,16 +18,15 @@ body{
     width: 80%;
     margin: auto;
 }
-input[type=text]{
-    width: 30%;
-    
-}
 .header{
     position: fixed;
     right: 0;
     top: 0;
     left: 0;
     padding: 2rem;
+}
+.header .container{
+    justify-content: space-between;
 }
 .main .container div{
     width: 95%;
@@ -36,11 +36,20 @@ input[type=text]{
     margin: 5px;
     
 }
+.dark-btn{
+    background-color: orangered;
+}
 input[type=text]{
     background-color: transparent;
+    width: 30%;
 
 }
-.input[type=text]:focus{
+#filter{
+    background-color: var(--dark-color);
+    color: white;
+    width: 100%;
+}
+input[type=text]:focus{
     outline: none;
 }
 .input-area{
@@ -49,6 +58,18 @@ input[type=text]{
 }
 ul{
     list-style: none;
+}
+
+select{
+    width: 20%;
+    margin-left: 5px;
+}
+select:focus{
+    outline: none;
+}
+ul .item {
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* Utilities */
@@ -65,11 +86,13 @@ ul{
 .border-none{
     border: none;
 }
-.border-top{
-    border-top: solid 1px grey;
+ .border-top{border-bottom: solid 1px grey;
 }
-.bg-success{
+ .bg-success{
     background-color: var(--success-color);
+}
+.bg-danger{
+    background-color: var(--danger-color);
 }
 .text-light{
     color: var(--light-color);
@@ -98,4 +121,7 @@ ul{
 }
 .p-block-1{
     padding-block: .5rem;
+}
+.pbs-1{
+    padding-bottom: .25rem;
 }

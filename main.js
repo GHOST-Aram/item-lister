@@ -117,3 +117,82 @@
 // const list = document.querySelector('.main .list')
 // headContainer.insertBefore( newDiv, list )
 
+//EVENT HANDLING
+//   CLICK Event
+const blockBtn  =  document.querySelector('.btn-block')
+const btns = document.querySelectorAll('.btn')
+const header =  document.querySelector('.header')
+const textbox = document.querySelector('input[type=text]')
+console.log(textbox.value)
+function changeToDark(e){
+    document.body.setAttribute('style', 'color:white; background-color:black')
+    header.setAttribute('style', 'background-color: orangered')
+    btns.forEach(element => {
+        element.style.backgroundColor = 'orangered'
+    });
+    textbox.style.color = 'white'
+
+    console.log(e.offsetX)
+    console.log(e.ctrlKey)
+
+}
+
+blockBtn.addEventListener('click', changeToDark, {once:true})
+
+//Double click event
+// const blockBtn  =  document.querySelector('.btn-block')
+
+// blockBtn.addEventListener('dblclick', runEvent, {once:true})
+// blockBtn.addEventListener('mousedown', runEvent, {once:true})
+// blockBtn.addEventListener('mouseup', runEvent, {once:true})
+
+
+const box  =  document.querySelector('#box')
+let currenTime = new Date()
+
+box.addEventListener('mouseenter', runEvent)
+box.addEventListener('mouseleave', (e)=>{
+    box.classList.remove('linear-gradient') 
+    console.log(e.type)
+})
+box.addEventListener('mouseover', runEvent)
+box.addEventListener('mouseout', runEvent)
+
+
+//Mouse move
+const mouseY = document.createElement('h3')
+const mouseX = document.createElement('h3')
+
+function runEvent(e){
+    box.classList.add('linear-gradient')
+    mouseX.textContent = `Mouse X: ${e.offsetX}`
+    mouseY.textContent = `Mouse Y: ${e.offsetY}`
+    box.appendChild(mouseX)
+    box.appendChild(mouseY)
+    console.log(e.type)
+}
+
+box.addEventListener('mousemove', runEvent)
+
+//KeydownEvent
+// textbox.addEventListener('keydown', (e)=>{
+//     mouseX.textContent = textbox.value
+//     box.appendChild(mouseX)
+//     console.log(`Event type: ${currenTime.getTime()/1000} :  ${e.target.value}`)
+// })
+
+//kEYUP Event
+// textbox.addEventListener('keyup', (e)=>{
+//     mouseX.textContent = textbox.value
+//     box.appendChild(mouseX)
+//     console.log(`Event type: ${currenTime.getTime()/1000} :  ${e.type}`)
+// })
+
+//Focus Event
+function getEventType(e){
+    mouseX.textContent = textbox.value
+    box.appendChild(mouseX)
+    console.log(e.type)
+}
+// textbox.addEventListener('blur', getEventType)
+textbox.addEventListener('focus', getEventType)

@@ -5,15 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer></script>
+    <script src="lister.js" defer></script>
     <title>Item | Lister</title>
 </head>
 <body>
     <section class="header bg-success">
-        <div class="container ">
-            <p id="header-title" class=" header-title font-lg text-light fw-500">
+        <div class="container flex">
+            <div id="header-title" class=" header-title font-lg text-light fw-500">
                 Item Lister
-            </p>
+            </div>
+            <div class="align-self-center">
+                <input id="filter" type="text" 
+                class="text-box bg-dark font-sm border-outline border-rounded p-1"
+                placeholder="Search items...">
+
+            </div>
         </div>
     </section>
     <section class="main pt-1">
@@ -22,26 +28,28 @@
                 <p id="add-items" class="title font-md fw-500">
                     Add Items
                 </p>
-                <div class=" input-area flex">
-                    <input id="text-input" type="text" value="New Item" class="text-box font-sm border-outline border-rounded p-1">
-                    <input id="input-btn" type="submit" value="Submit" class="btn border-rounded font-sm border-nonefw-300 bg-dark text-light border-none p-1">
-                </div>
+                <form id="add-form" action="" class="form-control">
+                    <input id="new-item" type="text"
+                            placeholder="Type new item" value=""
+                            class="text-box font-sm border-outline border-rounded p-1">
+                    <input id="input-btn" type="submit" 
+                            value="Submit" class="btn border-rounded font-sm 
+                            border-none fw-300 bg-dark text-light border-none p-1">
+                </form>
                 <p class=" title p-block-1 font-md fw-500">
                     Items
                 </p>
                 <ul class="item-list border-outline border-rounded">
-                    <li id="item-2" class="list-item p-1 fw-300 font-sm border-top border-rounded">List item</li>
-                    <li id="item-1" class="list-item p-1 fw-300 font-sm border-top border-rounded">List item</li>
-                    <li id="item-3" class="list-item p-1 fw-300 font-sm border-top border-rounded">List item</li>
-                    <li id="item-4" class="list-item p-1 fw-300 font-sm border-top border-rounded">List item</li>
+                    <!-- <div class="flex item border-top pbs-1">
+                        <li id="item-1" class="list-item fw-300 font-sm  border-rounded">
+                            List item
+                        </li>
+                        <button class="fw-300 p-1 border-rounded font-sm bg-danger btn-sm text-light border-none">
+                            Remove
+                        </button>
+                    </div> -->
                 </ul>
-                <button style="width: 100%; margin: 1rem auto;" class="btn border-rounded 
-                    font-sm border-nonefw-300
-                    bg-dark text-light 
-                    border-none p-1 btn-block">
-                    Click Here
-                </button>
-            </div>
+            </div>    
         </div>
     </section>
 </body>
