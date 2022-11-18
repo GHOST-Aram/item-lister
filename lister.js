@@ -39,20 +39,18 @@ function createItem(){
 
 function addToItemsArray(item){
     if(item) itemsArray.push(item)
-    
-    console.log(item)
-}S
+}
 
 function renderList(){
     itemsArray.forEach(element => {
         itemList.appendChild(element)
     });
 }
-// function removeItem(e){
-//     if(e.target.type === "submit")
-//         itemList.removeChild(e.target.parentElement)
-//     // console.log(e.target.type)
-// }
+function removeItem(e){
+    if(e.target.type === "submit")
+        itemList.removeChild(e.target.parentElement)
+    // console.log(e.target.type)
+}
 
 //Call EventListener on submit
 form.addEventListener('submit', (e) =>{
@@ -63,5 +61,5 @@ form.addEventListener('submit', (e) =>{
 })
 
 //
-// itemList.addEveSSntListener('click', removeItem)
+itemList.addEventListener('click', removeItem)
 
