@@ -2,10 +2,9 @@ const newItemBuffer = document.querySelector('#new-item')
 const form = document.querySelector('form')
 const itemList = document.querySelector('ul')
 
+let itemsArray = []
 
-function addItem(e){
-    let currentTime = new Date()
-    e.preventDefault()
+function createItem(){
     //List div
     const ulDiv = document.createElement('div')
     ulDiv.classList.add(
@@ -16,34 +15,45 @@ function addItem(e){
     listItem.classList.add(
         "list-item", "fw-300", "font-sm", "border-rounded"
     )
-    
-    if(newItemBuffer.value.trim()){
-        listItem.textContent = newItemBuffer.value
-            //Remove button
-        const removeButton = document.createElement('button')
-        removeButton.classList.add(
-            "fw-300", "p-1" ,"border-rounded", "font-sm" ,
-            "bg-danger", "btn-sm", "text-light","border-none"
-        )
-        removeButton.textContent = "Remove"
-
+    listItem.textContent = newItemBuffer.value
+    //Remove button
+    const removeButton = document.createElement('button')
+    removeButton.classList.add(
+        "fw-300", "p-1" ,"border-rounded", "font-sm" ,
+        "bg-danger", "btn-sm", "text-light","border-none"
+    )
+    removeButton.textContent = "Remove"
+        
+    if(listItem.textContent.trim()){
         //Appending items to list
-
         ulDiv.appendChild(listItem)
         ulDiv.appendChild(removeButton)
-        itemList.appendChild(ulDiv)
-
+        newItemBuffer.value = ""
     } else {
         alert("You did not type anything")
     }
-    //Clear the textbox
-    newItemBuffer.value = ""
-    // console.log("Current Time = ", currentTime.getTime())
+    return ulDiv
 }
 
-function removeItem(e){
+function addToItemsArray(item){
+    itemsArray.push(item)
+}
+
+function renderList(){
+    itemsArray.forEach(element => {
+        itemList.appendChild(element)
+    });
     
+}
+function removeItem(e){
+    itemList.removeChild(e.target.parentElement)
 }
 
 //Call EventListener on submit
-form.addEventListener('submit', addItem, {capture:true, once:false})
+form.addEventListener('submit', (e) =>{
+    e.preventDefault()
+    let item = createItem()
+    addToItemsArray(item)
+    renderList()
+})
+
