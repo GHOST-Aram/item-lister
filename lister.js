@@ -3,6 +3,11 @@ const form = document.querySelector('form')
 const itemList = document.querySelector('ul')
 const filter  = document.querySelector('#filter')
 
+
+//Onload 
+let list
+
+window.addEventListener('load', getList)
 //Call EventListener on submit
 form.addEventListener('submit', (e) =>{
     e.preventDefault()
@@ -19,10 +24,20 @@ itemList.addEventListener('click', removeItem)
 
 //filtering items
 filter.addEventListener('keyup', filterItems)
-let itemsArray = []
 
+//
 
-
+function getList(){
+    let storedlist = JSON.parse(window.localStorage.getItem('list'))
+    if(Array.isArray(storedlist)){
+        //if list exists in localstorage- use the stored list
+        list = storedlist
+    } else{
+        //create an empty list and make local strage
+        list = []
+        window.localStorage.setItem('list', JSON.stringify(list))
+    }
+}
 function createItem(){
     //List div
     const ulDiv = document.createElement('div')
