@@ -1,8 +1,27 @@
 const newItemBuffer = document.querySelector('#new-item')
 const form = document.querySelector('form')
 const itemList = document.querySelector('ul')
+const filter  = document.querySelector('#filter')
 
+//Call EventListener on submit
+form.addEventListener('submit', (e) =>{
+    e.preventDefault()
+    let item = createItem()
+    render(item)
+})
+
+//Call event listener on list to when remove button is clicked
+// 
+itemList.addEventListener('click', removeItem)
+
+
+
+
+//filtering items
+filter.addEventListener('keyup', filterItems)
 let itemsArray = []
+
+
 
 function createItem(){
     //List div
@@ -30,36 +49,36 @@ function createItem(){
         ulDiv.appendChild(removeButton)
         newItemBuffer.value = ""
         return ulDiv
-    } else {
-        alert("You did not type anything")
-    }
-    //Creating a list object
-    
+    }  
 }
 
-function addToItemsArray(item){
-    if(item) itemsArray.push(item)
+function render(item){
+        itemList.appendChild(item)
 }
-
-function renderList(){
-    itemsArray.forEach(element => {
-        itemList.appendChild(element)
-    });
-}
+//Renoving by altering DOM
 function removeItem(e){
     if(e.target.type === "submit")
         itemList.removeChild(e.target.parentElement)
-    // console.log(e.target.type)
 }
 
-//Call EventListener on submit
-form.addEventListener('submit', (e) =>{
-    e.preventDefault()
-    let item = createItem()
-    addToItemsArray(item)
-    renderList()
-})
 
-//
-itemList.addEventListener('click', removeItem)
+//filter list
+function filterItems(e){
+   // console.log(filter.value)
+    items = itemList.querySelectorAll('li')
+    // console.log(Array.from(items))
+    Array.from(items).forEach(element =>{
+        let itemName = element.textContent.toLowerCase()
+        let filterVal = filter.value.toLowerCase()
+        if(itemName.indexOf(filterVal) !== -1){
+            element.parentElement.style.display = 'flex'
+        } else {
+            element.parentElement.style.display = 'none'
+        }
+            
+    })
+    
+}
+
+
 
